@@ -15,7 +15,9 @@ FROM debian:buster-slim
 
 # Install necessary runtime dependencies
 RUN apt-get update && apt-get install -y \
-    ca-certificates && \
+    ca-certificates \
+    libssl3 \
+    libssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
