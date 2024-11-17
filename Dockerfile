@@ -11,13 +11,11 @@ COPY . .
 RUN cargo build --release
 
 # Step 2: Create a minimal runtime image
-FROM debian:buster-slim
+FROM debian:bookwork-slim
 
 # Install necessary runtime dependencies
 RUN apt-get update && apt-get install -y \
-    ca-certificates \
-    libssl1.1 \
-    libssl-dev && \
+    ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
